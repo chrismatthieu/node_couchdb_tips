@@ -1,9 +1,12 @@
-= CouchDB Tips
+CouchDB Tips
+============
 
-==CREATE DATABASE
+CREATE DATABASE
+===============
 curl -X PUT http://127.0.0.1:5984/books
 
-==WRITE RECORD
+WRITE RECORD
+===============
 curl -X PUT http://127.0.0.1:5984/books/1 -d \
 "{
 \"_id\":\"1\", 
@@ -11,14 +14,17 @@ curl -X PUT http://127.0.0.1:5984/books/1 -d \
 }"
 
 
-==READ RECORD
+READ RECORD
+===============
 curl -X GET http://127.0.0.1:5984/books/1
 
 
-==DELETE RECORD
+DELETE RECORD
+===============
 curl -X DELETE http://127.0.0.1:5984/books/1?rev=1-6e488095a5bf295b5880ce74846ca7bf
 
-==UPDATE RECORD
+UPDATE RECORD
+===============
 curl -X PUT http://127.0.0.1:5984/books/1 -d \
 "{
 \"_id\":\"1\", 
@@ -27,7 +33,8 @@ curl -X PUT http://127.0.0.1:5984/books/1 -d \
 }"
 
 
-==MAP:
+MAP:
+===============
 function(doc) {
   if (doc.title){
     emit(doc.title);
@@ -36,9 +43,11 @@ function(doc) {
 
 Save as defaults / titles
 
-==GET VIEW
+GET VIEW
+===============
 curl -X GET http://127.0.0.1:5984/books/_design/default/_view/titles 
 
 
-==GET VIEW with Doc
+GET VIEW with Doc
+===============
 curl -X GET http://127.0.0.1:5984/books/_design/default/_view/titles -G -d include_docs=true
