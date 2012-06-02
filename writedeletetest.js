@@ -5,7 +5,7 @@ book = {};
 
 
 // Writes records to a couchdb database
-for (i = 41; i < 50; i++) {
+for (i = 1; i < 10; i++) {
 	book.id = i;
 	book.title = "book" + i;
 	request({uri:'http://127.0.0.1:5984/books/' + i, method:'PUT', headers:h, body: JSON.stringify(book)}, function (err, response, body) {

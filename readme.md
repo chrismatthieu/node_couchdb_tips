@@ -1,5 +1,9 @@
 # CouchDB Tips
 
+I'm not a big fan of using ports or brew to deploy apps to my machine. IrisCouch has a great deploy script for installing CouchDB on your localhost.
+https://github.com/iriscouch/build-couchdb
+
+
 ## CREATE DATABASE
 curl -X PUT http://127.0.0.1:5984/books
 
